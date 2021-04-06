@@ -27,4 +27,38 @@ interface TestimonialsRepositoryInterface
      * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
      */
     public function getById(String $id);
+
+    /**
+     * Get All
+     *
+     * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
+     */
+    public function getList();
+
+    /**
+     * Create post.
+     *
+     * @param \AHT\Testimonials\Api\Data\TestimonialsInterface $post
+     *
+     * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
+     */
+    public function createPost(\AHT\Testimonials\Api\Data\TestimonialsInterface $post);
+
+    /**
+     * Update post
+     *
+     * @param String $id
+     * @param \AHT\Blog\Api\Data\PostInterface $post
+     *
+     * @return null
+     */
+    public function updatePost(String $id, \AHT\Testimonials\Api\Data\TestimonialsInterface $post);
+
+    /**
+     * Delete Post by ID.
+     *
+     * @param string $postId
+     * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
+     */
+    public function deleteById($postId);
 }

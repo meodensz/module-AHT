@@ -46,6 +46,25 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ]
             );
         }
+        if (version_compare($context->getVersion(), '1.0.3', '<')) {
+            $table = $setup->getConnection()
+            ->newTable($setup->getTable('aht_customer'))
+            ->addColumn(
+                'id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
+                'ID'
+            )
+            ->addColumn(
+                'name',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => false],
+                    'name'
+            );
+        $setup->getConnection()->createTable($table);
+        }
         $setup->endSetup();
     }
 

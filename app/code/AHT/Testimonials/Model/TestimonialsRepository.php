@@ -90,9 +90,75 @@ class TestimonialsRepository implements TestimonialsRepositoryInterface
         $Post = $this->PostFactory->create();
         $Post->load($postId);
         if (!$Post->getId()) {
-            throw new NoSuchEntityException(__('The CMS Post with the "%1" ID doesn\'t exist.', $PostId));
+            throw new NoSuchEntityException(__('The CMS Post with the "%1" ID doesn\'t exist.', $postId));
         }
         $result = $Post;
         return $result;
+    }
+     /**
+     * function get all data
+     *
+     * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
+     */
+    public function getList()
+    {
+        $collection = $this->PostCollectionFactory->create();
+        return $collection->getData();
+    }
+
+    /**
+     * Create post.
+     *
+     * @return \AHT\Testimonials\Api\Data\TestimonialsInterface
+     *
+     * @throws LocalizedException
+     */
+    public function createPost(TestimonialsInterface $post)
+    {
+        try {
+            $this->resource->save($post);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(
+                __('Could not save the Post: %1', $exception->getMessage()),
+                $exception
+            );
+        }
+        return json_encode(array(
+            "status" => 200,
+            "message" => $post->getData()
+        ));
+
+    }
+
+
+    public function updatePost(String $id, TestimonialsInterface $post)
+    {
+
+        try {
+            $objPost = $this->PostFactory->create();
+            $id = intval($id);
+            $objPost->setId($id);
+            //Set full collum
+            $objPost->setData($post->getData());
+            $this->resource->save($objPost);
+
+            return $objPost->getData();
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(
+                __('Could not save the Post: %1', $exception->getMessage()),
+                $exception
+            );
+        }
+    }
+
+    public function deleteById($postId)
+    {
+        $id = intval($postId);
+        if($this->resource->delete($this->getById($id))) {
+            return json_encode([
+                "status" => 200,
+                "message" => "Successfully"
+            ]);
+        }
     }
 }

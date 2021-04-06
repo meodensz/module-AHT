@@ -13,7 +13,7 @@ use Magento\Framework\Registry;
 use AHT\Testimonials\Api\TestimonialsRepositoryInterface;
 use AHT\Testimonials\Model\Testimonials;
 use AHT\Testimonials\Model\TestimonialsFactory;
-// use AHT\Testimonials\Model\Testimonials\ImageUploader;
+use AHT\Testimonials\Model\Testimonials\ImageUploader;
 
 /**
  * Save CMS block action.
@@ -35,23 +35,24 @@ class Save extends \AHT\Testimonials\Controller\Adminhtml\Testimonials implement
      */
     private $blockRepository;
 
-    // /**
-    //  * @var ImageUploader
-    //  */
-    // protected $imageUploader;
+    /**
+     * @var ImageUploader
+     */
+    protected $imageUploader;
     /**
      * @param Context $context
      * @param Registry $coreRegistry
      * @param DataPersistorInterface $dataPersistor
      * @param BlockFactory|null $blockFactory
      * @param BlockRepositoryInterface|null $blockRepository
+     * @param ImageUploader $imageUploader
      */
     public function __construct(
         Context $context,
         Registry $coreRegistry,
         DataPersistorInterface $dataPersistor,
         TestimonialsFactory $blockFactory = null,
-        // ImageUploader $imageUploader,
+        ImageUploader $imageUploader,
         TestimonialsRepositoryInterface $blockRepository = null
     ) {
         $this->dataPersistor = $dataPersistor;
@@ -59,7 +60,7 @@ class Save extends \AHT\Testimonials\Controller\Adminhtml\Testimonials implement
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(TestimonialsFactory::class);
         $this->blockRepository = $blockRepository
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(TestimonialsRepositoryInterface::class);
-        // $this->imageUploader = $imageUploader;
+        $this->imageUploader = $imageUploader;
         parent::__construct($context, $coreRegistry);
     }
 
@@ -94,14 +95,14 @@ class Save extends \AHT\Testimonials\Controller\Adminhtml\Testimonials implement
                     return $resultRedirect->setPath('*/*/');
                 }
             }
-            // $data2 = $data;
-            // if (isset($data2['image'][0]['name'])) {
-            //     $data2['images'] = $data['image'][0]['name'];
-            //     $imageName = $data2['images'];
-            // }else{
-            //     $imageName = '';
-            // }
-            // $data['images'] = $imageName;
+            $data2 = $data;
+            if (isset($data2['image'][0]['name'])) {
+                $data2['images'] = $data['image'][0]['name'];
+                $imageName = $data2['images'];
+            }else{
+                $imageName = '';
+            }
+            $data['images'] = $imageName;
             $model->setData($data);
 
             try {
@@ -109,9 +110,9 @@ class Save extends \AHT\Testimonials\Controller\Adminhtml\Testimonials implement
                 /*$model->save();*/
                 $this->messageManager->addSuccessMessage(__('You saved the block.'));
                 $this->dataPersistor->clear('fortfolio');
-                // if ($imageName){
-                //     $this->imageUploader->moveFileFromTmp($imageName);
-                // }
+                if ($imageName){
+                    $this->imageUploader->moveFileFromTmp($imageName);
+                }
                 return $this->processBlockReturn($model, $data, $resultRedirect);
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());

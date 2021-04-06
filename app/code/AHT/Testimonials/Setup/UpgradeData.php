@@ -26,6 +26,13 @@ class UpgradeData implements UpgradeDataInterface
 			];
 			$post = $this->_postFactory->create();
 			$post->addData($data)->save();
+        }
+        if (version_compare($context->getVersion(), '1.0.5', '<')) {
+			$data = [
+				'name' => "Upgrade Data",
+			];
+			$post = $this->_postFactory->create();
+			$post->addData($data)->save();
 		}
 		$setup->startSetup();
 	}
