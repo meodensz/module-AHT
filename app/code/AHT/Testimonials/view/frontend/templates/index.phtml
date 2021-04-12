@@ -1,0 +1,45 @@
+<h2>Testimonial</h2>
+<div class="owl-carousel owl-theme background-testimonials">
+<?php
+    foreach($block->getAll() as $item){
+    echo"<div class='item'>";
+    echo"<div class='item-create'>";
+    echo"<a href=".$block->getCreate().">"."+"."</a>";
+    echo"</div>";
+    echo"<div class='item-title'>"."<h1>What our clients are saying</h1>"."</div>";
+    echo"<img src=".$block->getBaseUrl()."pub/media/testimonials/index/".$item->getImages().">";
+	echo"<div class='item-message'>".$item->getMessage()."</div>";
+    echo"<div class='item-names'>".$item->getNames()."</div>";
+    echo"<div class='create-testimonials'>";
+    echo "</div>";
+    echo"</div>";
+    }
+?>
+</div>
+
+<script>
+	require([
+		'jquery',
+		'owlcarousel',
+		], function ($) {
+			jQuery(document).ready(function () {
+				$('.owl-carousel').owlCarousel({
+					loop:true,
+					margin:10,
+                    dots:false,
+					nav:true,
+					responsive:{
+						0:{
+							items:1
+						},
+						600:{
+							items:1
+						},
+						1000:{
+							items:1
+						}
+					}
+				})
+			});
+		});
+	</script>

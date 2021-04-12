@@ -133,27 +133,51 @@
                 </item>
             </argument>
         </field>
-        <field name="price" sortOrder="5">
+        <field name="message" sortOrder="5">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Price</item>
+                    <item name="label" xsi:type="string" translate="true">Message</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">testimonials</item>
                     <item name="sortOrder" xsi:type="number">4</item>
-                    <item name="dataScope" xsi:type="string">price</item>
+                    <item name="dataScope" xsi:type="string">message</item>
                 </item>
             </argument>
         </field>
-        <field name="content" sortOrder="6">
+        <field name="contact" sortOrder="6">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="label" xsi:type="string" translate="true">Contact</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">testimonials</item>
                     <item name="sortOrder" xsi:type="number">5</item>
-                    <item name="dataScope" xsi:type="string">content</item>
+                    <item name="dataScope" xsi:type="string">contact</item>
+                </item>
+            </argument>
+        </field>
+        <field name="email" sortOrder="7">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">testimonials</item>
+                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="dataScope" xsi:type="string">email</item>
+                </item>
+            </argument>
+        </field>
+        <field name="names" sortOrder="8">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Names</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">testimonials</item>
+                    <item name="sortOrder" xsi:type="number">7</item>
+                    <item name="dataScope" xsi:type="string">names</item>
                 </item>
             </argument>
         </field>

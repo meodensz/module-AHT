@@ -247,9 +247,7 @@ class ImageUploader
         $uploader = $this->uploaderFactory->create(['fileId' => $fileId]);
         $uploader->setAllowedExtensions($this->getAllowedExtensions());
         $uploader->setAllowRenameFiles(true);
-
         $result = $uploader->save($this->mediaDirectory->getAbsolutePath($baseTmpPath));
-        /*unset($result['path']);*/
 
         if (!$result) {
             throw new \Magento\Framework\Exception\LocalizedException(

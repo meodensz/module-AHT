@@ -95,8 +95,10 @@ class Save extends \AHT\Testimonials\Controller\Adminhtml\Testimonials implement
                     return $resultRedirect->setPath('*/*/');
                 }
             }
+            //save data images
             $data2 = $data;
             if (isset($data2['image'][0]['name'])) {
+
                 $data2['images'] = $data['image'][0]['name'];
                 $imageName = $data2['images'];
             }else{

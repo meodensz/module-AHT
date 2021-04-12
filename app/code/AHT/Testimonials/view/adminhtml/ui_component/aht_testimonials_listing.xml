@@ -33,7 +33,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>AHT_Testimonials::page</aclResource>
+        <aclResource>AHT_Testimonials::index</aclResource>
         <dataProvider class="AHT\Testimonials\Ui\Component\DataProvider" name="aht_testimonials_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
@@ -190,7 +190,7 @@
                 </item>
             </argument>
         </column>
-         <column name="price">
+        <column name="names">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -200,11 +200,11 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Price</item>
+                    <item name="label" xsi:type="string" translate="true">Names</item>
                 </item>
             </argument>
         </column>
-         <column name="content">
+         <column name="contact">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -214,7 +214,21 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="label" xsi:type="string" translate="true">Contact</item>
+                </item>
+            </argument>
+        </column>
+         <column name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
                 </item>
             </argument>
         </column>

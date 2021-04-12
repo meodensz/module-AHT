@@ -65,6 +65,52 @@ class UpgradeSchema implements UpgradeSchemaInterface
             );
         $setup->getConnection()->createTable($table);
         }
+        if (version_compare($context->getVersion(), '1.0.6', '<')) {
+            $setup->getConnection()->addColumn(
+                $setup->getTable('aht_testimonials'),
+                'names',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => 255,
+                    'nullable' => false,
+                    'default' => '',
+                    'comment' => 'names'
+                ]
+            );
+            $setup->getConnection()->addColumn(
+                $setup->getTable('aht_testimonials'),
+                'email',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => 255,
+                    'nullable' => false,
+                    'default' => '',
+                    'comment' => 'email'
+                ]
+            );
+            $setup->getConnection()->addColumn(
+                $setup->getTable('aht_testimonials'),
+                'message',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => 255,
+                    'nullable' => false,
+                    'default' => '',
+                    'comment' => 'message'
+                ]
+            );
+            $setup->getConnection()->addColumn(
+                $setup->getTable('aht_testimonials'),
+                'contact',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => 255,
+                    'nullable' => false,
+                    'default' => '',
+                    'comment' => 'contact'
+                ]
+            );
+        }
         $setup->endSetup();
     }
 

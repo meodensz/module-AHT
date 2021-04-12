@@ -91,7 +91,6 @@ class Testimonials extends \Magento\Framework\Model\AbstractModel implements Ide
     {
         $this->setData('price', $price);
     }
-
     public function getContent()
     {
         return $this->getData('content');

@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<referenceContainer name="content">
-			<block class="AHT\Testimonials\Block\Frontend\Index" name="indexblock" template="AHT_Testimonials::index.phtml" ifconfig="testimonialss/testimonials/enable"></block>
+			<block class="AHT\Testimonials\Block\Frontend\Index" name="createblock" template="AHT_Testimonials::create.phtml"></block>
 		</referenceContainer>
 	</body>
 </page>

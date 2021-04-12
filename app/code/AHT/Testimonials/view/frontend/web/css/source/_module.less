@@ -1,0 +1,85 @@
+& when (@media-common = true) {
+    div .owl-carousel .owl-item img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    div .owl-theme .owl-nav [class*='owl-']{
+        border-radius: 50%;
+    }
+    div .owl-carousel .owl-nav {
+        button.owl-prev{
+            border: 1px solid white;
+        }
+        button.owl-next{
+            border: 1px solid white;
+        }
+    }
+    .background-testimonials{
+        background-color: #0077ce;
+        height: 100%;
+        position: relative;
+        .owl-nav{
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            .owl-prev{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                left: 5%;
+                position: absolute;
+
+            }
+            .owl-next{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                right: 5%;
+                position: absolute;
+            }
+        }
+        .item{
+            text-align: center;
+            color: white;
+            img{
+                width: auto;
+                margin: auto;
+            }
+            .item-create{
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                position: relative;
+                float: right;
+                border: 1px solid white;
+                border-radius: 3px;
+
+                a{
+                    font-size: 28px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+            .item-title{
+                text-align: center;
+                h1{
+                    color: white;
+                    padding-top: 30px;
+                }
+            }
+            .item-message{
+                margin-top: 15px;
+            }
+            .item-names{
+                margin-top: 15px;
+            }
+
+        }
+    }
+
+}

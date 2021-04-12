@@ -1,0 +1,28 @@
+<h1>Create Testimonials</h1>
+<form method='post' enctype="multipart/form-data" action='<?php echo $block->getSave(); ?>'>
+    <div class="form-group">
+        <label for="title">Your Name</label>
+        <input type="text" class="form-control" id="names" placeholder="Enter a name" name="names">
+    </div>
+    <div class="form-group">
+        <label for="title">Your Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Enter a designation" name="description">
+    </div>
+    <div class="form-group">
+        <label for="title">Your Message</label>
+        <input type="text" class="form-control" id="message" placeholder="Enter a message" name="message">
+    </div>
+    <div class="form-group">
+        <label for="title">Your Email</label>
+        <input type="text" class="form-control" id="naemailme" placeholder="Enter a email" name="email">
+    </div>
+    <div class="form-group">
+        <label for="title">Your Contact</label>
+        <input type="text" class="form-control" id="contact" placeholder="Enter a contact" name="contact">
+    </div>
+    <div class="form-group">
+        <label for="title">Your Image</label>
+        <input type="file" class="form-control" id="images" placeholder="Enter a image" name="images">
+    </div>
+    <button type="submit" name="createBtn" class="btn btn-primary">Submit</button>
+</form>
